@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mausam Kumari | 3D Cartoon Bubble Portfolio 🫧</title>
+  <meta name="description" content="Portfolio of Mausam Kumari - B.Tech Computer Science Student, Web Developer, and Data Visualization Enthusiast with interactive 3D bubble aesthetics.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🫧</text></svg>">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Screen Bubbles Overlay (For Party Mode) -->
+  <div id="bubble-pop-overlay"></div>
+
+  <!-- Notification Toast -->
+  <div id="toast-bubble" class="toast-bubble">
+    <span id="toast-text">✨ Copied to clipboard!</span>
+  </div>
+
+  <!-- ==========================================================================
+       FLOATING NAVIGATION BAR
+       ========================================================================== -->
+  <header class="navbar-wrapper">
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="#hero" class="nav-brand" title="Mausam Kumari Portfolio">
+        <div class="brand-bubble">🫧</div>
+        <span>Mausam.dev</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#projects" class="nav-link">Projects & Games 🎮</a></li>
+        <li><a href="#skills" class="nav-link">Superpowers ⚡</a></li>
+        <li><a href="#education" class="nav-link">Journey 🎓</a></li>
+        <li><a href="#contact" class="nav-link">Connect 💬</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Sound Effect Toggle -->
+        <button id="btn-sound-toggle" class="btn-icon-bubble" title="Toggle Cartoon Sound Effects" aria-label="Toggle Sound">
+          <span id="sound-icon">🔇</span>
+        </button>
+
+        <!-- Bubble Party Mode Easter Egg Toggle -->
+        <button id="btn-bubble-mode" class="btn-bubble btn-yellow" style="padding: 0.45rem 1rem; font-size: 0.85rem;" title="Toggle Bubble Pop Mode">
+          🫧 Pop Party
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Open Navigation Menu">
+          ☰
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION (3D CANVAS + BIO)
+       ========================================================================== -->
+  <section id="hero" class="hero-section">
+    <!-- Interactive Three.js 3D Bubble World Canvas -->
+    <canvas id="three-canvas" aria-label="Interactive 3D Bubble Canvas"></canvas>
+
+    <div class="container hero-content">
+      <!-- Left: Playful Bio Card -->
+      <div class="hero-text-card">
+        <div class="hero-pill-badge">
+          <span class="pulse-dot"></span>
+          <span>B.Tech CS Student • Seeking Internships</span>
+        </div>
+
+        <h1 class="hero-title">
+          Hey there! I'm <br>
+          <span class="highlight-name">Mausam Kumari</span> 🫧
+        </h1>
+
+        <div class="hero-subtitle">
+          <span>Web Developer</span> • 
+          <span>Python Enthusiast</span> • 
+          <span>Data Visualizer</span>
+        </div>
+
+        <p class="hero-bio">
+          Passionate B.Tech Computer Science student skilled in crafting vibrant, high-performance web applications, interactive games, and insightful data dashboards. Constantly transforming ambitious ideas into delightful, responsive experiences!
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn-bubble btn-pink">
+            <span>Explore Projects</span>
+            <span>🚀</span>
+          </a>
+          <a href="#contact" class="btn-bubble btn-purple">
+            <span>Get in Touch</span>
+            <span>💬</span>
+          </a>
+          <button id="btn-download-cv" class="btn-bubble btn-white">
+            <span>View Resume</span>
+            <span>📄</span>
+          </button>
+        </div>
+
+        <!-- Quick Resume Metrics -->
+        <div class="hero-quick-stats">
+          <div class="stat-bubble">
+            <span class="stat-num">7.5</span>
+            <span class="stat-label">CGPA @ CVRU</span>
+          </div>
+          <div class="stat-bubble">
+            <span class="stat-num">2027</span>
+            <span class="stat-label">B.Tech Cohort</span>
+          </div>
+          <div class="stat-bubble">
+            <span class="stat-num">3+</span>
+            <span class="stat-label">Featured Apps</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Cartoon 3D Avatar Frame -->
+      <div class="hero-avatar-card">
+        <div class="avatar-frame">
+          <img src="assets/images/avatar.jpg" alt="Mausam Kumari 3D Cartoon Avatar" class="avatar-img">
+        </div>
+
+        <!-- Floating Playful Stickers -->
+        <div class="sticker-badge sticker-1" style="--rot: 6deg;">
+          <span>⚡ Quick Learner</span>
+        </div>
+        <div class="sticker-badge sticker-2" style="--rot: -6deg;">
+          <span>📍 Patna, Bihar</span>
+        </div>
+        <div class="sticker-badge sticker-3" style="--rot: 4deg;">
+          <span>📊 Power BI & Web</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D Interaction Tip -->
+    <div class="canvas-hint">
+      <span>🫧 Drag mouse to bounce 3D bubbles or click anywhere to pop!</span>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PROJECTS SHOWCASE SECTION
+       ========================================================================== */ -->
+  <section id="projects" class="pattern-checker">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Interactive Showcase</span>
+        <h2 class="section-title">Featured Projects & Live Games 🚀</h2>
+        <p class="section-desc">
+          Step right into the arcade! Test out my deployed projects or play interactive simulations directly inside your browser.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Carbon Footprint Tracker -->
+        <article class="project-card">
+          <div class="project-thumbnail">
+            <img src="assets/images/project_carbon.jpg" alt="Carbon Footprint Tracker 3D Preview" class="project-img">
+            <span class="project-badge-tag">🌱 Live Web App</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Carbon Footprint Tracker</h3>
+            <p class="project-desc">
+              Built and deployed a responsive web application to promote environmental sustainability. Computes real-time carbon emissions and renders instant eco-action insights.
+            </p>
+            <div class="project-tech-tags">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Netlify</span>
+              <span class="tech-tag">Eco-Analytics</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn-bubble btn-pink btn-interactive-demo" onclick="openModal('modal-carbon')">
+                <span>Try Calculator</span>
+                <span>🧮</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Classic Snake Game -->
+        <article class="project-card">
+          <div class="project-thumbnail">
+            <img src="assets/images/project_snake.jpg" alt="Classic Snake Game 3D Preview" class="project-img">
+            <span class="project-badge-tag">🐍 Python Game</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Classic Snake Game</h3>
+            <p class="project-desc">
+              Developed a classic interactive Snake game utilizing Python, Turtle graphics, and Object-Oriented Programming (OOP) with real-time event handling and collision detection.
+            </p>
+            <div class="project-tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Turtle Graphics</span>
+              <span class="tech-tag">OOP</span>
+              <span class="tech-tag">Collision Logic</span>
+              <span class="tech-tag">Netlify</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn-bubble btn-purple btn-interactive-demo" onclick="openModal('modal-snake')">
+                <span>Play Game</span>
+                <span>🎮</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Flappy Bird Arcade -->
+        <article class="project-card">
+          <div class="project-thumbnail">
+            <img src="assets/images/project_flappy.jpg" alt="Flappy Bird Arcade 3D Preview" class="project-img">
+            <span class="project-badge-tag">🐦 Arcade Game</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Flappy Bird Arcade</h3>
+            <p class="project-desc">
+              Created an engaging Flappy Bird arcade game featuring smooth bird physics, dynamic obstacle generation, collision detection, and score tracking with game loops.
+            </p>
+            <div class="project-tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Game Loop</span>
+              <span class="tech-tag">Physics</span>
+              <span class="tech-tag">Git / GitHub</span>
+              <span class="tech-tag">Live Deploy</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn-bubble btn-yellow btn-interactive-demo" onclick="openModal('modal-flappy')">
+                <span>Play Arcade</span>
+                <span>🕹️</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SKILLS & SUPERPOWERS MATRIX
+       ========================================================================== -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Tech Stack</span>
+        <h2 class="section-title">My Coding Superpowers ⚡</h2>
+        <p class="section-desc">
+          Tools, languages, and frameworks I use to build scalable web apps and interactive software.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="skills-filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Skills 🫧</button>
+        <button class="filter-tab" data-filter="languages">Languages 💻</button>
+        <button class="filter-tab" data-filter="frontend">Frontend 🎨</button>
+        <button class="filter-tab" data-filter="backend">Backend & Tools 🛠️</button>
+        <button class="filter-tab" data-filter="data">Data & Core 📊</button>
+      </div>
+
+      <!-- Skill Bubble Cards Grid -->
+      <div class="skills-grid" id="skills-grid">
+        <!-- Python -->
+        <div class="skill-bubble-card" data-category="languages">
+          <div class="skill-icon-bubble" style="background: var(--c-yellow);">🐍</div>
+          <h4 class="skill-name">Python</h4>
+          <span class="skill-category">Programming</span>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-bubble-card" data-category="languages frontend">
+          <div class="skill-icon-bubble" style="background: var(--c-yellow);">⚡</div>
+          <h4 class="skill-name">JavaScript</h4>
+          <span class="skill-category">Core Web (ES6+)</span>
+        </div>
+
+        <!-- HTML5 & CSS3 -->
+        <div class="skill-bubble-card" data-category="frontend">
+          <div class="skill-icon-bubble" style="background: var(--c-pink); color: #fff;">🌐</div>
+          <h4 class="skill-name">HTML5 / CSS3</h4>
+          <span class="skill-category">Modern Semantic UI</span>
+        </div>
+
+        <!-- React.js -->
+        <div class="skill-bubble-card" data-category="frontend">
+          <div class="skill-icon-bubble" style="background: var(--c-sky);">⚛️</div>
+          <h4 class="skill-name">React.js</h4>
+          <span class="skill-category">Frontend SPA</span>
+        </div>
+
+        <!-- Node.js -->
+        <div class="skill-bubble-card" data-category="backend">
+          <div class="skill-icon-bubble" style="background: #a8f5b4;">🟢</div>
+          <h4 class="skill-name">Node.js</h4>
+          <span class="skill-category">Runtime Backend</span>
+        </div>
+
+        <!-- Express.js -->
+        <div class="skill-bubble-card" data-category="backend">
+          <div class="skill-icon-bubble" style="background: var(--c-mist);">🚂</div>
+          <h4 class="skill-name">Express.js</h4>
+          <span class="skill-category">RESTful APIs</span>
+        </div>
+
+        <!-- Power BI -->
+        <div class="skill-bubble-card" data-category="data">
+          <div class="skill-icon-bubble" style="background: var(--c-yellow);">📊</div>
+          <h4 class="skill-name">Power BI</h4>
+          <span class="skill-category">Data Visualization</span>
+        </div>
+
+        <!-- Git & GitHub -->
+        <div class="skill-bubble-card" data-category="backend">
+          <div class="skill-icon-bubble" style="background: var(--c-pink); color: #fff;">🐙</div>
+          <h4 class="skill-name">Git & GitHub</h4>
+          <span class="skill-category">Version Control</span>
+        </div>
+
+        <!-- VS Code -->
+        <div class="skill-bubble-card" data-category="backend">
+          <div class="skill-icon-bubble" style="background: var(--c-blue); color: #fff;">💻</div>
+          <h4 class="skill-name">VS Code</h4>
+          <span class="skill-category">Development Env</span>
+        </div>
+
+        <!-- Netlify & Vercel -->
+        <div class="skill-bubble-card" data-category="backend">
+          <div class="skill-icon-bubble" style="background: var(--c-sky);">▲</div>
+          <h4 class="skill-name">Netlify / Vercel</h4>
+          <span class="skill-category">Cloud Deployment</span>
+        </div>
+
+        <!-- OOP Concepts -->
+        <div class="skill-bubble-card" data-category="data languages">
+          <div class="skill-icon-bubble" style="background: var(--c-purple); color: #fff;">🧩</div>
+          <h4 class="skill-name">OOP & Logic</h4>
+          <span class="skill-category">Computer Science</span>
+        </div>
+
+        <!-- Responsive Design -->
+        <div class="skill-bubble-card" data-category="frontend">
+          <div class="skill-icon-bubble" style="background: var(--c-lavender);">📱</div>
+          <h4 class="skill-name">Responsive Design</h4>
+          <span class="skill-category">Cross-Platform UI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EDUCATION & JOURNEY ISLAND
+       ========================================================================== -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Milestones</span>
+        <h2 class="section-title">Education & Super Strengths 🎓</h2>
+        <p class="section-desc">
+          Building strong fundamentals in Computer Science while practicing daily problem-solving and full-stack development.
+        </p>
+      </div>
+
+      <div class="education-island">
+        <!-- Education Card -->
+        <div class="edu-main-card">
+          <div class="edu-badge-header">
+            <span class="edu-pill-year">2023 - 2027</span>
+            <span class="edu-cgpa-bubble">⭐ CGPA: 7.5 / 10</span>
+          </div>
+
+          <h3 class="edu-degree">Bachelor of Technology (B.Tech)</h3>
+          <h4 class="edu-univ">Computer Science & Engineering</h4>
+          <p style="font-weight: 600; color: var(--c-clay); margin-bottom: 1.2rem;">
+            🏫 Dr. C. V. Raman University, Bihar
+          </p>
+
+          <ul class="edu-details-list">
+            <li>
+              <span class="bubble-bullet"></span>
+              <span>Hands-on coursework in Data Structures, Algorithms, and Object-Oriented Programming (OOP).</span>
+            </li>
+            <li>
+              <span class="bubble-bullet"></span>
+              <span>Focus on Full-Stack Web Development, Data Visualization, and responsive software design.</span>
+            </li>
+            <li>
+              <span class="bubble-bullet"></span>
+              <span>Practical experience with modern JavaScript frameworks, Python game architecture, and Power BI dashboards.</span>
+            </li>
+            <li>
+              <span class="bubble-bullet"></span>
+              <span>Actively seeking a Software Development / Web Development internship for real-world impact.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Strengths & Work Ethic -->
+        <div class="strengths-card">
+          <h3 style="font-size: 1.6rem; font-weight: 700; color: var(--c-plum); margin-bottom: 1.5rem;">
+            Why Hire Mausam? 🌟
+          </h3>
+
+          <div class="strength-box">
+            <div class="strength-icon">⚡</div>
+            <div>
+              <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--c-plum);">Quick Learner & High Adaptability</h4>
+              <p style="font-size: 0.92rem; color: #553551;">Quick learner, will easily grasp all knowledge transfers (KTs) and dive straight into productivity.</p>
+            </div>
+          </div>
+
+          <div class="strength-box">
+            <div class="strength-icon">🏃‍♀️</div>
+            <div>
+              <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--c-plum);">Fast-Paced Execution</h4>
+              <p style="font-size: 0.92rem; color: #553551;">Can work comfortably under fast-paced, dynamic startup or enterprise environments with proactive delivery.</p>
+            </div>
+          </div>
+
+          <div class="strength-box">
+            <div class="strength-icon">🎨</div>
+            <div>
+              <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--c-plum);">Eye for Interactive Design</h4>
+              <p style="font-size: 0.92rem; color: #553551;">Combines solid programming logic with delightful, user-centric interfaces and responsive layouts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTACT & CONNECT SECTION
+       ========================================================================== -->
+  <section id="contact" class="contact-section pattern-polka">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Say Hello</span>
+        <h2 class="section-title">Let's Create Magic Together! 💌</h2>
+        <p class="section-desc">
+          Looking for a passionate web development intern or have an exciting project? Drop a message!
+        </p>
+      </div>
+
+      <div class="contact-card-wrapper">
+        <!-- Left: Direct Info & Comic Bubble -->
+        <div class="contact-info-panel">
+          <div class="comic-speech-bubble">
+            "I'm open for Software Development & Web Development internships! Let's build something awesome together! 🚀"
+          </div>
+
+          <div class="contact-direct-items">
+            <!-- Email -->
+            <button class="direct-item-btn" id="btn-copy-email" data-clipboard="mausamsingh488@gmail.com" title="Click to copy email">
+              <div class="item-left">
+                <span>📧</span>
+                <span>mausamsingh488@gmail.com</span>
+              </div>
+              <span class="copy-badge-pill">Copy 📋</span>
+            </button>
+
+            <!-- Phone -->
+            <button class="direct-item-btn" id="btn-copy-phone" data-clipboard="+917079860581" title="Click to copy phone number">
+              <div class="item-left">
+                <span>📞</span>
+                <span>+91 7079860581</span>
+              </div>
+              <span class="copy-badge-pill">Call / Copy 📋</span>
+            </button>
+
+            <!-- Location -->
+            <div class="direct-item-btn" style="cursor: default;">
+              <div class="item-left">
+                <span>📍</span>
+                <span>Patna, Bihar, India</span>
+              </div>
+              <span class="copy-badge-pill" style="background: var(--c-yellow); color: var(--c-ink);">Home Base</span>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="social-bubble-row">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-bubble-btn">
+              <span>GitHub</span>
+              <span>🐙</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-bubble-btn btn-linkedin">
+              <span>LinkedIn</span>
+              <span>💼</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Contact Form -->
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <label for="contact-name" class="form-label">Your Name</label>
+            <input type="text" id="contact-name" class="form-input" placeholder="e.g. Alex Smith" required>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-email" class="form-label">Your Email</label>
+            <input type="email" id="contact-email" class="form-input" placeholder="e.g. alex@company.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message" class="form-label">Message</label>
+            <textarea id="contact-message" class="form-textarea" placeholder="Hi Mausam, we loved your bubble portfolio and would like to discuss an opportunity..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-bubble btn-pink" style="width: 100%; margin-top: 0.5rem;">
+            <span>Send Message</span>
+            <span>✉️</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MODALS FOR PLAYABLE GAMES & DEMOS
+       ========================================================================== -->
+
+  <!-- Modal 1: Carbon Footprint Calculator -->
+  <div id="modal-carbon" class="modal-backdrop">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 class="modal-title">🌱 Carbon Footprint Real-time Calculator</h3>
+        <button class="btn-modal-close" onclick="closeModal('modal-carbon')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="calc-controls">
+          <div class="calc-row">
+            <div class="calc-label-row">
+              <span>Daily Commute (km)</span>
+              <span id="val-commute" style="color: var(--c-pink);">15 km</span>
+            </div>
+            <input type="range" id="calc-commute" class="calc-slider" min="0" max="100" value="15">
+          </div>
+
+          <div class="calc-row">
+            <div class="calc-label-row">
+              <span>Daily Electricity (kWh)</span>
+              <span id="val-elec" style="color: var(--c-purple);">8 kWh</span>
+            </div>
+            <input type="range" id="calc-elec" class="calc-slider" min="1" max="50" value="8">
+          </div>
+
+          <div class="calc-row">
+            <div class="calc-label-row">
+              <span>Dietary Profile</span>
+            </div>
+            <select id="calc-diet" class="form-input">
+              <option value="balanced" selected>Balanced Diet</option>
+              <option value="plant">Plant-Based / Vegetarian (-50% emissions)</option>
+              <option value="meat">High Meat Consumption (+40% emissions)</option>
+            </select>
+          </div>
+
+          <div class="calc-row" style="flex-direction: row; align-items: center; gap: 0.8rem;">
+            <input type="checkbox" id="calc-recycle" checked style="width: 20px; height: 20px; accent-color: var(--c-pink);">
+            <label for="calc-recycle" style="font-weight: 700; color: var(--c-plum); cursor: pointer;">
+              Active Recycling & Energy Saving (-15%)
+            </label>
+          </div>
+        </div>
+
+        <div class="calc-results-card">
+          <span style="font-size: 0.9rem; font-weight: 700; text-transform: uppercase; color: var(--c-blue);">
+            Estimated Annual Carbon Footprint
+          </span>
+
+          <div class="calc-metrics">
+            <div class="calc-metric-box">
+              <div class="metric-number" id="result-co2">3.85 T</div>
+              <span style="font-size: 0.8rem; font-weight: 700;">Tonnes CO₂ / yr</span>
+            </div>
+            <div class="calc-metric-box">
+              <div class="metric-number" id="result-trees">175 🌲</div>
+              <span style="font-size: 0.8rem; font-weight: 700;">Trees to Offset</span>
+            </div>
+          </div>
+
+          <div id="result-badge" class="eco-badge eco-conscious">
+            🌱 Conscious Eco Explorer
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Classic Snake Game -->
+  <div id="modal-snake" class="modal-backdrop">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 class="modal-title">🐍 Play Classic Bubble Snake!</h3>
+        <button class="btn-modal-close" onclick="closeModal('modal-snake')">&times;</button>
+      </div>
+      <div class="modal-body game-container">
+        <div class="game-scoreboard">
+          <div class="score-box">Score: <span id="snake-score" class="score-val">0</span></div>
+          <div class="score-box">Best: <span id="snake-high-score" class="score-val">0</span></div>
+        </div>
+
+        <div class="game-canvas-frame">
+          <canvas id="snake-canvas" width="320" height="320"></canvas>
+        </div>
+
+        <div style="display: flex; gap: 0.8rem;">
+          <button id="snake-start-btn" class="btn-bubble btn-pink">🎮 Start Game</button>
+          <button id="snake-pause-btn" class="btn-bubble btn-yellow" style="display: none;">⏸️ Pause</button>
+        </div>
+
+        <!-- Touch Controls for Mobile / Tablets -->
+        <div class="snake-dpad">
+          <button id="snake-btn-up" class="dpad-btn dpad-up" aria-label="Up">⬆️</button>
+          <button id="snake-btn-left" class="dpad-btn dpad-left" aria-label="Left">⬅️</button>
+          <button id="snake-btn-down" class="dpad-btn dpad-down" aria-label="Down">⬇️</button>
+          <button id="snake-btn-right" class="dpad-btn dpad-right" aria-label="Right">➡️</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Flappy Bird Arcade -->
+  <div id="modal-flappy" class="modal-backdrop">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 class="modal-title">🐦 Play Flappy Bubble Bird!</h3>
+        <button class="btn-modal-close" onclick="closeModal('modal-flappy')">&times;</button>
+      </div>
+      <div class="modal-body game-container">
+        <div class="game-scoreboard">
+          <div class="score-box">Score: <span id="flappy-score" class="score-val">0</span></div>
+          <div class="score-box">Best: <span id="flappy-high-score" class="score-val">0</span></div>
+        </div>
+
+        <div class="game-canvas-frame">
+          <canvas id="flappy-canvas" width="360" height="360"></canvas>
+        </div>
+
+        <div style="display: flex; gap: 0.8rem; align-items: center;">
+          <button id="flappy-start-btn" class="btn-bubble btn-yellow">🚀 Flap Wings</button>
+          <span style="font-size: 0.85rem; font-weight: 700; color: var(--c-plum);">(or tap screen / press Space)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resume Quick View Modal -->
+  <div id="modal-resume" class="modal-backdrop">
+    <div class="modal-window" style="max-width: 600px;">
+      <div class="modal-header">
+        <h3 class="modal-title">📄 Mausam Kumari - Resume Summary</h3>
+        <button class="btn-modal-close" onclick="closeModal('modal-resume')">&times;</button>
+      </div>
+      <div class="modal-body" style="font-size: 0.95rem;">
+        <div style="text-align: center; margin-bottom: 1.2rem;">
+          <h2 style="font-family: 'Fredoka', cursive; color: var(--c-pink); font-size: 1.8rem;">Mausam Kumari</h2>
+          <p style="font-weight: 700; color: var(--c-plum);">B.Tech Computer Science Student (2023 - 2027) • CGPA 7.5</p>
+          <p style="color: #666;">Patna, Bihar | mausamsingh488@gmail.com | +91 7079860581</p>
+        </div>
+
+        <div style="border-top: var(--border-medium); padding-top: 1rem; margin-bottom: 1rem;">
+          <h4 style="font-family: 'Fredoka', cursive; color: var(--c-purple); margin-bottom: 0.4rem;">🎯 Career Objective</h4>
+          <p style="color: #4A3047;">B.Tech Computer Science student with hands-on experience in web development and data visualization. Skilled in HTML, CSS, JavaScript, React.js, Node.js, Express.js, Git, GitHub, Power BI and responsive web design. Seeking a Software Development/Web Development internship where I can contribute and grow.</p>
+        </div>
+
+        <div style="border-top: var(--border-medium); padding-top: 1rem; margin-bottom: 1rem;">
+          <h4 style="font-family: 'Fredoka', cursive; color: var(--c-purple); margin-bottom: 0.4rem;">💻 Key Technical Skills</h4>
+          <p><strong>Languages:</strong> Python, JavaScript</p>
+          <p><strong>Frontend:</strong> HTML5, CSS3, React.js, Responsive Design</p>
+          <p><strong>Backend & Tools:</strong> Node.js, Express.js, Git/GitHub, Netlify, Vercel, VS Code</p>
+          <p><strong>Data & Analytics:</strong> Power BI, Data Visualization, OOP</p>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+          <button class="btn-bubble btn-pink" onclick="window.print()">
+            <span>Print / Save PDF</span>
+            <span>🖨️</span>
+          </button>
+          <button class="btn-bubble btn-white" onclick="closeModal('modal-resume')">
+            <span>Close</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bubble-cluster">
+        <div class="footer-mini-bubble" style="background: var(--c-pink);"></div>
+        <div class="footer-mini-bubble" style="background: var(--c-yellow);"></div>
+        <div class="footer-mini-bubble" style="background: var(--c-blue);"></div>
+        <div class="footer-mini-bubble" style="background: var(--c-purple);"></div>
+        <div class="footer-mini-bubble" style="background: var(--c-sky);"></div>
+      </div>
+
+      <p class="footer-text">
+        Designed & Built with 🫧 Bubble Aesthetics & 3D Cartoon Energy for <strong>Mausam Kumari</strong>
+      </p>
+      <p class="footer-sub">
+        Patna, Bihar • mausamsingh488@gmail.com • +91 7079860581 • B.Tech CSE (2023 - 2027)
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Three.js from Cloudflare CDN for robust 3D rendering -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Sound Effects Synthesizer -->
+  <script src="audio-effects.js"></script>
+  <!-- Three.js 3D Bubble World -->
+  <script src="three-scene.js"></script>
+  <!-- Interactive Games & Widgets -->
+  <script src="games.js"></script>
+  <!-- Main Application Logic & Interactivity -->
+  <script src="app.js"></script>
+</body>
+</html>
